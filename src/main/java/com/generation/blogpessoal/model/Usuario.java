@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,7 +22,6 @@ public class Usuario {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
 	private String nome;
 	
 	@NotNull
@@ -31,7 +29,6 @@ public class Usuario {
 	private String usuario;
 	
 	@NotBlank
-	@Size(min = 8, max = 16, message = "A senha deve conter de 8 até 16 caracteres")
 	private String senha;
 	
 	private String foto;
@@ -40,6 +37,20 @@ public class Usuario {
 	@JsonIgnoreProperties ("usuario")
 	private List <Postagem> postagem;
 	
+	// Metodos construtores para testes
+	//é importante seguir a mesma ordem das declarações dos atributos de usuario acima 
+	//construtor cheio
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+	
+	//construtor vazio
+	public Usuario() {}
+
 	public Long getId() {
 		return id;
 	}
