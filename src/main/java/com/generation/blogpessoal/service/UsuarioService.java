@@ -18,16 +18,18 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 
-	// função para cadastrar um usuario
+	//Função para cadastrar um usuario
 	public Optional<Usuario> cadastraUsuario(Usuario usuario) {
-
+		
+		//Ver se o usuario existe
 		if (repository.findByUsuario(usuario.getUsuario()).isPresent())
+			//Se existir atualizao dado e retorna o mesmo
 			return Optional.empty();
 
-		// criptografo a senha do usuariio caso não exista
+		//Criptografo a senha do usuariio caso não exista
 		usuario.setSenha(criptografarSenha(usuario.getSenha()));
 
-		// e por ultimo, salvo o usuario com a senha já criptografada no banco de dados
+		//E por ultimo, salvo o usuario com a senha já criptografada no banco de dados
 		return Optional.of(repository.save(usuario));
 	}
 
