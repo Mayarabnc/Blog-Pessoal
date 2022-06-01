@@ -28,7 +28,8 @@ public class UsuarioRepositoryTest {
 	
 	@Autowired
 	private UsuarioRepository repository;
-
+	
+	//o que fazer antes de iniciar o teste
 	@BeforeAll
 	void start() {
 
@@ -38,8 +39,7 @@ public class UsuarioRepositoryTest {
 
 		repository.save(new Usuario(0L, "Brocco Silva", "broco@gmail.com", "broccolis", "https://i.imgur.com/FETvs2O.jpg"));
 
-		repository
-				.save(new Usuario(0L, "Mayara", "will31smith@gmail.com", "cenoura12345", "https://i.imgur.com/FETvs2O.jpg"));
+		repository.save(new Usuario(0L, "Mayara", "will31smith@gmail.com", "cenoura12345", "https://i.imgur.com/FETvs2O.jpg"));
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class UsuarioRepositoryTest {
 		Optional<Usuario> usuario = repository.findByUsuario("michaeltrimundial@gmail.com");
 		assertTrue(usuario.get().getUsuario().equals("michaeltrimundial@gmail.com"));
 	}
-	
+
 	@Test
 	@DisplayName("Teste que retorna 3 usuarios")
 	public void RetornaTresUsuarios() {

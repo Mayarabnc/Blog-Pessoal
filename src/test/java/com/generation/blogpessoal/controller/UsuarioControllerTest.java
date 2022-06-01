@@ -26,7 +26,7 @@ import com.generation.blogpessoal.service.UsuarioService;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 				//indica que caso a porta principal(8080 para uso local) esteja ocupada, o Spring irá atribuir uma outra porta automacamente
 
-//indica que o Ciclo de vida da Classe de Teste será por Classe
+//indica que o teste ira ser por classe (indica que o Ciclo de vida da Classe de Teste será por Classe)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 //indica em qual ordem os testes serão executados
