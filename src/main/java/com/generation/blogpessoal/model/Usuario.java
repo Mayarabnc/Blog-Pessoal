@@ -38,7 +38,7 @@ public class Usuario {
 	
 	private String tipo;
 	
-	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany (mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties ("usuario")
 	private List <Postagem> postagem;
 	
@@ -59,10 +59,6 @@ public class Usuario {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -97,6 +93,14 @@ public class Usuario {
 		this.foto = foto;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
@@ -105,12 +109,9 @@ public class Usuario {
 		this.postagem = postagem;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+	
 }
 

@@ -52,7 +52,7 @@ public class UsuarioLogin {
 	public String getFoto() {
 		return foto;
 	}
-or mo
+
 	public String getTipo() {
 		return tipo;
 	}
